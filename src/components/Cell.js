@@ -6,12 +6,13 @@ class Cell extends Component {
     super();
     this.state = {
       value: null,
+      winner: false,
     };
   }
 
   render () {
     return (
-      <div className="Cell" onClick={()=> this.props.onClick()}>
+      <div className={this.props.class} id={this.props.id} onClick={()=> this.props.onClick()}>
       {this.props.value}
       </div>
     )

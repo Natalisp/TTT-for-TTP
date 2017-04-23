@@ -26,4 +26,22 @@
   border: solid 1px red;
   padding: 0;
   text-align: center;
+  vertical-align: middle;
+}
+
+.winner {
+  -webkit-animation: win-win 1s infinite; /* Safari 4+ */
+  -moz-animation:    win-win 1s infinite; /* Fx 5+ */
+  -o-animation:      win-win 1s infinite; /* Opera 12+ */
+  animation:         win-win 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes win-win {
+  0%, 49% {
+    border-color: #fff;
+    background-color: red;
+  }
+  50%, 100% {
+    background-color: #fff;
+}
 }
