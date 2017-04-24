@@ -70,5 +70,4 @@ function checkWinner(cells) {
    return null;
   }
 
-
 export default Game;
