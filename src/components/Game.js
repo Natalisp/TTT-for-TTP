@@ -9,11 +9,14 @@ class Game extends Component {
       cells: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
       playerX: true,
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.initState = this.state;
+    this.clearBoard = this.clearBoard.bind(this);
   }
 
   handleClick(i) {
     const cells = this.state.cells.slice();
-    cells[i] = this.state.playerX ? 'X' : 'O';
+      cells[i] = this.state.playerX ? 'X' : 'O';
     this.setState({
       cells: cells,
       playerX: !this.state.playerX,
@@ -21,27 +24,26 @@ class Game extends Component {
   }
 
   clearBoard() {
-    this.setState({
-      cells: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-      layerX: true,
-    });
+    this.setState(this.initState);
   }
 
   render() {
     const winwin = checkWinner(this.state.cells);
     let currentSituation;
+    let congrats = "";
     if (winwin) {
       const winnerCells = winwin[0];
       const winner = winwin[1];
-      currentSituation = winner + ' WON!';
+      congrats = winner + ' WON!';
     } else {
       currentSituation = (this.state.playerX ? 'X' : 'O') + ' TURN';
     }
     return (
       <div className="Board">
          <div className="Status">{currentSituation}</div>
+         <div className="Congrats">{congrats}</div>
         <Board cells={this.state.cells} getHandleClick={(i)=>this.handleClick(i)}/>
-        <button onClick={this.clearBoard} >New Game</button>
+        <button onClick={this.clearBoard} style={{width: 280, marginTop: 20, marginLeft: -20, backgroundColor: "#85CEBA"}} >New Game</button>
       </div>
     )
   }
