@@ -13,7 +13,7 @@
 
 .Board {
   width: 30em;
-  margin: 0 auto;
+  margin: 10px auto;
   height: 30em;
   background-color: white;
   padding: 0;
@@ -27,6 +27,11 @@
   padding: 0;
   text-align: center;
   vertical-align: middle;
+}
+
+.Status {
+  margin: 10px;
+  color: red;
 }
 
 .winner {
